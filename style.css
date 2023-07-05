@@ -29,6 +29,16 @@ main{
     margin-top: 45px;
     text-transform: capitalize;
 }
+#cbt{
+    margin-top:30px;
+   /* text-align: center;  */
+}
+#time{
+    text-align: end;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
 .butt button{
     width: 80px;
     padding: 5px;
@@ -38,4 +48,10 @@ main{
     border-radius: 5px;
      cursor: pointer;
      margin-top: 45px;
+}
+.but-on{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
 }
