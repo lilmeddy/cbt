@@ -1,0 +1,41 @@
+*{
+    top: 0;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #f2f2f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh
+}
+main{
+    width:50%;
+    background-color: #fff;
+    height: 40%;
+    border-radius: 5px;
+    /* padding: 6px; */
+}
+#home{
+   margin-top:30px;
+   text-align: center; 
+}
+#home h1{
+    color: blue;
+}
+#home p{
+    margin-top: 45px;
+    text-transform: capitalize;
+}
+.butt button{
+    width: 80px;
+    padding: 5px;
+    font-size: 18px;
+    border: none;
+    background-color: blue;
+    border-radius: 5px;
+     cursor: pointer;
+     margin-top: 45px;
+}
