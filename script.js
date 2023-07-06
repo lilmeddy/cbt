@@ -74,34 +74,50 @@ let mede = [
     answer: "27",
   },
 ];
-let sum = document.getElementById("sum")
-// sum.style.display ="none"
+
 let quest = document.getElementById("quest");
 let pre = document.getElementById("pre")
 let nex = document.getElementById("nex")
+let sum = document.getElementById("sum")
+// sum.style.display ="none"
 let que = 0
-    quest.innerHTML = "<h3>" + mede[que].question+"</h3>"
+    quest.innerHTML = "<h3 class='qu'>" + mede[que].question+"</h3>"
     mede[que].options.forEach((el,i)=>{
-        quest.innerHTML +=`<p><input type="radio" name="inp${que}" onchange="selectAns(event)" value="${el}"/>
+        quest.innerHTML +=`<p class="ans"><input type="radio" name="inp${que}" onchange="selectAns(event)" value="${el}"/>
         <span> ${el}</span></p>`
     })
+    pre.setAttribute("disabled",true)
     function next() {
         que +=1
-        quest.innerHTML = "<h3>" + mede[que].question +"</h3>"
+        pre.removeAttribute("disabled",true)
+        if(que == mede.length-1){
+          sum.style.display ="inline"
+          nex.style.display ="none"
+        }
+        quest.innerHTML = "<h3 class='qu'>" + mede[que].question +"</h3>"
         mede[que].options.forEach((el,i)=>{
-           quest.innerHTML +=`<p><input type="radio" name="sel${que}" onchange="selectAns(event)" value="${el}"/>
+           quest.innerHTML +=`<p class="ans"><input type="radio" name="sel${que}" onchange="selectAns(event)" value="${el}" />
                  <span> ${el}</span></p>`
         })
         
     }
    function prev(){
      que -=1
-     quest.innerHTML ="<h3>" + mede[que].question+"</h3>"
+     quest.innerHTML ="<h3 class='qu'>" + mede[que].question+"</h3>"
         mede[que].options.forEach((el,i)=>{
-            quest.innerHTML +=`<p><input type="radio" name="inp${que}" onchange="selectAns(event)" value="${el}"/>
+            quest.innerHTML +=`<p class="ans"><input type="radio" name="inp${que}" onchange="selectAns(event)" value="${el}"/>
             <span> ${el}</span></p>`
         })
-   }
+        sum.style.display ="none"
+        nex.style.display ="initial"
+     if(que<=0){
+      pre.setAttribute("disabled",true)
+      }
+    }
 function selectAns(ev){
     console.log(ev.target.value);
+}
+function sumb(){
+  home.style.display = "block";
+  cbt.style.display = "none";
 }
