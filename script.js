@@ -3,15 +3,14 @@
 // for answers that you read through
 // for correct answer
 let home = document.getElementById("home");
-let quest = document.getElementById("quest");
-let option = document.getElementById("option");
-let ans = document.getElementById("ans");
+
 let cbt = document.getElementById("cbt");
 let time = document.getElementById("time");
 cbt.style.display = "none";
 function myStart() {
   home.style.display = "none";
   cbt.style.display = "block";
+  
 }
 function count(min) {
   let second = 60;
@@ -41,7 +40,7 @@ let mede = [
   },
   {
     question: "What is the name of my college",
-    option: ["COHES ", "COAES", "COCCS", "COSMS"],
+    options: ["COHES ", "COAES", "COCCS", "COSMS"],
     answer: "COCCS",
   },
   {
@@ -75,3 +74,34 @@ let mede = [
     answer: "27",
   },
 ];
+let sum = document.getElementById("sum")
+// sum.style.display ="none"
+let quest = document.getElementById("quest");
+let pre = document.getElementById("pre")
+let nex = document.getElementById("nex")
+let que = 0
+    quest.innerHTML = "<h3>" + mede[que].question+"</h3>"
+    mede[que].options.forEach((el,i)=>{
+        quest.innerHTML +=`<p><input type="radio" name="inp${que}" onchange="selectAns(event)" value="${el}"/>
+        <span> ${el}</span></p>`
+    })
+    function next() {
+        que +=1
+        quest.innerHTML = "<h3>" + mede[que].question +"</h3>"
+        mede[que].options.forEach((el,i)=>{
+           quest.innerHTML +=`<p><input type="radio" name="sel${que}" onchange="selectAns(event)" value="${el}"/>
+                 <span> ${el}</span></p>`
+        })
+        
+    }
+   function prev(){
+     que -=1
+     quest.innerHTML ="<h3>" + mede[que].question+"</h3>"
+        mede[que].options.forEach((el,i)=>{
+            quest.innerHTML +=`<p><input type="radio" name="inp${que}" onchange="selectAns(event)" value="${el}"/>
+            <span> ${el}</span></p>`
+        })
+   }
+function selectAns(ev){
+    console.log(ev.target.value);
+}
